@@ -1,4 +1,7 @@
-import { Text, View, StyleSheet, TextInput, Button } from "react-native";
+import { Link } from "expo-router";
+import { View, StyleSheet, TextInput } from "react-native";
+import { Text } from "react-native-paper";
+import { Button } from "react-native-paper";
 
 const Login = () => {
   return (
@@ -19,7 +22,13 @@ const Form = () => {
         secureTextEntry
         placeholder="password"
       ></TextInput>
-      <Button title={"Log In"} />
+      <Button mode="contained">Log in</Button>
+      <View style={{ display: "flex", flexDirection: "row" }}>
+        <Text>Don't have an account yet? </Text>
+        <Link href={"/auth/signup"} push>
+          Sign Up
+        </Link>
+      </View>
     </View>
   );
 };
