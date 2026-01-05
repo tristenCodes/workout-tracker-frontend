@@ -7,6 +7,10 @@ export default function Layout() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="auth" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="start-empty-workout"
+          options={{ presentation: "modal", title: "Start Workout" }}
+        />
       </Stack>
     </PaperProvider>
   );

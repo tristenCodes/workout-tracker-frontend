@@ -1,4 +1,4 @@
-import { useNavigation } from "expo-router";
+import { useRouter } from "expo-router";
 import { View, StyleSheet, TextInput } from "react-native";
 import { Text, useTheme } from "react-native-paper";
 import { Button } from "react-native-paper";
@@ -19,7 +19,7 @@ const Signup = () => {
 };
 
 const Form = () => {
-  const navigation = useNavigation();
+  const router = useRouter();
   const theme = useTheme();
 
   const onSubmit = useCallback(async (data: any) => {
@@ -27,7 +27,7 @@ const Form = () => {
 
     const API_URL = process.env.EXPO_PUBLIC_API_URL;
 
-    fetch(`${API_URL}/register`, {
+    fetch(`${API_URL}/api/Auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -134,7 +134,7 @@ const Form = () => {
       </Button>
       <View style={{ display: "flex", flexDirection: "row" }}>
         <Text>Already have an account? </Text>
-        <Text onPress={navigation.goBack}>Login</Text>
+        <Text onPress={() => router.back()}>Login</Text>
       </View>
     </View>
   );
